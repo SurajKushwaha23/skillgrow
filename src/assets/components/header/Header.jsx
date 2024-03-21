@@ -91,7 +91,7 @@ function Header() {
           <div className="lg:hidden">
             <Menu
               onClick={toggleMenu}
-              className="h-6 w-6 text-white cursor-pointer"
+              className="h-6 w-6 text-white cursor-pointer text-4xl"
             />
           </div>
           {isMenuOpen && (
