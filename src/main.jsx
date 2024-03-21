@@ -3,9 +3,10 @@ import ReactDOM from "react-dom/client";
 import App from "./App.jsx";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import "./index.css";
-import Login from "./assets/Pages/login/login.jsx";
-import Register from "./assets/Pages/registration/registration.jsx";
-import Home from "./assets/Pages/home/Home.jsx";
+import Login from "./assets/components/login/login.jsx";
+import Register from "./assets/components/registration/Registration.jsx";
+import Index from "./assets/components/index/Index.jsx";
+import Congratulation from "./assets/components/congratulation/Congratulation.jsx";
 
 const router = createBrowserRouter([
   {
@@ -24,7 +25,12 @@ const router = createBrowserRouter([
     children: [
       {
         path: "/",
-        element: <Home />,
+        element: <Index />,
+        message: "",
+      },
+      {
+        path: "congratulation",
+        element: <Congratulation />,
         message: "",
       },
     ],

@@ -52,7 +52,7 @@ const categories = [
   },
 ];
 
-function Home() {
+function Index() {
   return (
     <>
       <div className="relative w-full bg-white">
@@ -128,4 +128,4 @@ function Home() {
   );
 }
 
-export default Home;
+export default Index;

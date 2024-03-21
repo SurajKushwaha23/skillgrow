@@ -28,8 +28,8 @@ const menuItems = [
     href: "#",
   },
   {
-    name: "Contact",
-    href: "#",
+    name: "Congratulation",
+    href: "congratulation",
   },
 ];
 
