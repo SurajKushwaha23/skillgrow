@@ -32,6 +32,24 @@ const categories = [
     question: "350",
     bgColor: "rgb(87 81 225)",
   },
+  {
+    code: "AK",
+    title: "Anya Kushwaha",
+    question: "350",
+    bgColor: "rgb(70 148 187)",
+  },
+  {
+    code: "SK",
+    title: "Suman Kushwaha",
+    question: "350",
+    bgColor: "rgb(125 102 225)",
+  },
+  {
+    code: "AK",
+    title: "Ans Kushwaha",
+    question: "350",
+    bgColor: "rgb(235 97 220)",
+  },
 ];
 
 function Home() {
