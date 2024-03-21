@@ -50,12 +50,12 @@ function Header() {
             <ul className="inline-flex space-x-8">
               {menuItems.map((item) => (
                 <li key={item.name}>
-                  <a
-                    href={item.href}
+                  <NavLink
+                    to={item.href}
                     className="text-sm text-white font-semibold hover:text-white"
                   >
                     {item.name}
-                  </a>
+                  </NavLink>
                 </li>
               ))}
             </ul>
