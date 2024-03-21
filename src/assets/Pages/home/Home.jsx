@@ -48,13 +48,16 @@ function Home() {
                 </span>
               </p>
             </div>
-            <h1 className="mt-8 max-w-4xl text-3xl font-bold tracking-tight text-black md:text-4xl lg:text-6xl">
-              People who really cares about your business
+            <h1 className="mt-8 max-w-full text-4xl font-bold text-black md:text-4xl lg:text-7xl">
+              People who really cares about your growth.
             </h1>
-            <p className="mt-8 max-w-3xl text-lg text-gray-700">
+            <p className="mt-8 max-w-full text-lg text-gray-700">
               Lorem ipsum dolor sit amet consectetur adipisicing elit. Officia
               ipsam nulla aperiam quo possimus, nihil molestiae modi tenetur
-              esse qui repudiandae cum fuga aspernatur ea?
+              esse qui repudiandae cum fuga aspernatur ea? Lorem ipsum dolor sit
+              amet consectetur adipisicing elit. Officia ipsam nulla aperiam quo
+              possimus, nihil molestiae modi tenetur esse qui repudiandae cum
+              fuga aspernatur ea?
             </p>
             <div className="mt-8">
               <button

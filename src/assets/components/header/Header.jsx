@@ -72,7 +72,7 @@ function Header() {
               to="register"
               className="text-white text-sm text-black font-semibold cursor-pointer"
             >
-              Register
+              Get started Today
             </NavLink>
 
             <div class="user-profile hidden">
