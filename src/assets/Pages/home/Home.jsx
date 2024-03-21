@@ -81,7 +81,7 @@ function Home() {
           </p>
         </div>
         <div className=" container px-4 py-10">
-          <ul className="grid grid-cols-4 gap-4">
+          <ul className="grid grid-cols-1 md:grid-cols-4 gap-4">
             {categories.map((item) => (
               <li className="shadow rounded-md flex col-span-1 mb-4">
                 <div
