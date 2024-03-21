@@ -48,7 +48,7 @@ function Home() {
                 </span>
               </p>
             </div>
-            <h1 className="mt-8 max-w-full text-5xl font-bold text-black md:text-5xl lg:text-7xl">
+            <h1 className="mt-8 max-w-full text-4xl font-bold text-black md:text-5xl lg:text-7xl">
               People who really cares about your growth.
             </h1>
             <p className="mt-8 max-w-full text-lg text-gray-700">
