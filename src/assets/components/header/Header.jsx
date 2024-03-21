@@ -60,7 +60,7 @@ function Header() {
               ))}
             </ul>
           </div>
-          <div className="flex  hidden lg:block">
+          <div className="flex hidden lg:block">
             <NavLink
               to="login"
               className="px-5 text-white text-sm text-black font-semibold cursor-pointer"
