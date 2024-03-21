@@ -44,7 +44,7 @@ function Header() {
       <header className="relative w-full border-b bg-blue-primary py-3 shadow">
         <div className="mx-auto flex max-w-7xl items-center justify-between px-4 ">
           <div className="inline-flex items-center space-x-2">
-            <span className="font-bold text-white text-lg">SkillGro</span>
+            <span className="font-bold text-white text-2xl">SkillGrow</span>
           </div>
           <div className="hidden grow px-12 lg:block">
             <ul className="inline-flex space-x-8">
