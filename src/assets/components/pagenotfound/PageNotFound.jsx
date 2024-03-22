@@ -7,7 +7,7 @@ function PageNotFound() {
     <>
       <div className="py-24">
         <div className="text-center">
-          <p className="text-base font-bold text-9xl text-blue-primary">404</p>
+          <p className="font-bold text-9xl text-blue-primary">404</p>
           <h1 className="mt-2 text-3xl font-bold tracking-tight text-black sm:text-5xl">
             Page not found
           </h1>
