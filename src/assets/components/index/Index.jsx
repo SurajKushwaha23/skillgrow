@@ -1,5 +1,6 @@
 import React from "react";
 import { MoveRight } from "lucide-react";
+import { NavLink } from "react-router-dom";
 
 const categories = [
   {
@@ -85,13 +86,13 @@ function Index() {
                 Get started Today
                 <MoveRight className="ml-2" />
               </button>
-              <button
-                type="button"
+              <NavLink
+                to="selectquiz"
                 className="inline-flex bg-blue-primary mx-2 py-2  px-5 bg-violet-500 text-white font-semibold rounded-full shadow-md hover:bg-blue-primary focus:outline-none focus:ring focus:ring-violet-400 focus:ring-opacity-75"
               >
                 Quiz Started
                 <MoveRight className="ml-2" />
-              </button>
+              </NavLink>
             </div>
           </div>
         </div>
@@ -111,7 +112,7 @@ function Index() {
         <div className=" container px-4 py-10">
           <ul className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
             {categories.map((item) => (
-              <li className="shadow rounded-md flex col-span-1 mb-4">
+              <li className="shadow rounded-md flex col-span-1 mb-4 hover:drop-shadow-md">
                 <div
                   style={{ backgroundColor: item.bgColor }}
                   className="text-2xl font-bold text-white max-w-7xl justify-center items-center w-16 shrink-0 flex rounded-l uppercase"

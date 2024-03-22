@@ -12,6 +12,7 @@ import Login from "./assets/components/login/login.jsx";
 import Register from "./assets/components/registration/Registration.jsx";
 import Index from "./assets/components/index/Index.jsx";
 import PageNotFound from "./assets/components/pagenotfound/PageNotFound.jsx";
+import PreQuiz from "./assets/components/prequiz/prequiz.jsx";
 
 const router = createBrowserRouter(
   createRoutesFromElements(
@@ -20,6 +21,7 @@ const router = createBrowserRouter(
       <Route path="register" element={<Register />} />
       <Route path="/" element={<App />}>
         <Route path="" element={<Index />} />
+        <Route path="selectquiz" element={<PreQuiz />} />
         <Route path="*" element={<PageNotFound />} />
       </Route>
     </>

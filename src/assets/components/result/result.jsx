@@ -12,7 +12,7 @@ const people = [
   },
 ];
 
-function Congratulation() {
+function Result() {
   const [qualify, setQualify] = useState(false);
 
   return (
@@ -134,4 +134,4 @@ function Congratulation() {
   );
 }
 
-export default Congratulation;
+export default Result;

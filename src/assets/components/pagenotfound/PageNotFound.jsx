@@ -7,12 +7,15 @@ function PageNotFound() {
     <>
       <div className="py-24">
         <div className="text-center">
-          <p className="font-bold text-9xl text-blue-primary">404</p>
+          <p className="font-bold text-9xl text-blue-primary drop-shadow-sm">
+            404
+          </p>
           <h1 className="mt-2 text-3xl font-bold tracking-tight text-black sm:text-5xl">
-            Page not found
+            Oops! Page Not Found
           </h1>
-          <p className="mt-4 text-base leading-7 text-gray-600">
-            Sorry, we couldn&apos:t find the page you&apos;re looking for.
+
+          <p className="mt-4 text-base leading-7 font-semibold text-gray-600">
+            Sorry, we could not find the page you are looking for.
           </p>
           <div className="mt-4 flex items-center justify-center gap-x-3">
             <NavLink
