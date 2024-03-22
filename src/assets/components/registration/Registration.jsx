@@ -107,12 +107,18 @@ function Registration() {
 
         <div className="flex items-center justify-center px-8 py-8 sm:px-12 sm:px-6 sm:py-16 lg:px-8 lg:py-24">
           <div className="xl:mx-auto xl:w-full">
-            <h1 className="mt-6 text-2xl font-bold text-gray-900 sm:text-3xl md:text-4xl">
-              Welcome to SkillGrow 🦑
-            </h1>
-            <p className="mt-4 leading-relaxed text-gray-500">
-              Lorem, ipsum dolor sit amet consectetur adipisicing elit. Eligendi
-              nam dolorum aliquam, quibusdam aperiam voluptatum.
+            <h2 className="text-3xl font-bold leading-tight text-black sm:text-4xl">
+              Sign up to create account
+            </h2>
+            <p className="mt-2 text-sm text-gray-600">
+              Already have an account?{" "}
+              <NavLink
+                to="/login"
+                title=""
+                className="font-semibold text-blue-primary transition-all duration-200 hover:underline"
+              >
+                Sign In
+              </NavLink>
             </p>
 
             <form action="#" className="mt-8 grid grid-cols-6 gap-6">
@@ -225,17 +231,9 @@ function Registration() {
               </div>
 
               <div className="col-span-6 sm:flex sm:items-center sm:gap-4">
-                <button className="inline-block shrink-0 rounded-full border border-blue-600 bg-blue-primary px-10 py-3 text-sm font-medium text-white transition hover:text-white focus:outline-none focus:ring active:text-blue-500">
+                <button className="inline-block mx-auto w-full bg-blue-primary py-2  px-5 bg-violet-500 text-white text-sm font-semibold rounded-full shadow-md hover:bg-blue-primary focus:outline-none focus:ring focus:ring-violet-400 focus:ring-opacity-75">
                   Create an account
                 </button>
-
-                <p className="mt-4 text-sm text-gray-500 sm:mt-0">
-                  Already have an account?
-                  <NavLink to="/login" className="text-gray-700 underline">
-                    Log in
-                  </NavLink>
-                  .
-                </p>
               </div>
             </form>
             <div class="flex justify-center">

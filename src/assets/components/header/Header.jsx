@@ -5,31 +5,19 @@ import { Menu, MoveRight, X } from "lucide-react";
 const menuItems = [
   {
     name: "Home",
-    href: "#",
+    href: "/",
   },
   {
     name: "About",
-    href: "#",
+    href: "about",
   },
   {
     name: "Services",
-    href: "#",
-  },
-  {
-    name: "Pages",
-    href: "#",
-  },
-  {
-    name: "Blog",
-    href: "#",
+    href: "service",
   },
   {
     name: "Reward Point",
-    href: "#",
-  },
-  {
-    name: "Congratulation",
-    href: "congratulation",
+    href: "point",
   },
 ];
 
@@ -62,17 +50,17 @@ function Header() {
           </div>
           <div className="flex hidden lg:block">
             <NavLink
-              to="login"
-              className="px-5 text-white text-sm text-black font-semibold cursor-pointer"
-            >
-              Log In
-            </NavLink>
-
-            <NavLink
               to="register"
               className="text-white text-sm text-black font-semibold cursor-pointer"
             >
               Get started Today
+            </NavLink>
+
+            <NavLink
+              to="login"
+              className="px-5 text-white text-sm text-black font-semibold cursor-pointer"
+            >
+              Log In
             </NavLink>
 
             <div class="user-profile hidden">

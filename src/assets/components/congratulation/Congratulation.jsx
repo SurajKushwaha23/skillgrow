@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 
 const people = [
   {
@@ -13,15 +13,17 @@ const people = [
 ];
 
 function Congratulation() {
+  const [qualify, setQualify] = useState(false);
+
   return (
     <>
       <section className="bg-white">
         <div className="mx-auto px-4 py-2 lg:flex lg:items-center">
           <div className="mx-auto text-center">
-            {/* <img src="/success.png" className="w-[100px] flex mx-auto" />
+            <img src="/success.png" className="w-[100px] flex mx-auto" />
             <h1 className="text-4xl text-green-600 font-extrabold">
               Congratulation.
-            </h1> */}
+            </h1>
             <img src="/error.png" className="w-[100px] flex mx-auto" />
             <h1 className="text-4xl text-red-600 font-extrabold">OHHOOO!</h1>
             <p className="mt-4 max-w-xl font-semibold sm:text-lg/relaxed">
