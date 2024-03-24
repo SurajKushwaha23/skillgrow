@@ -81,9 +81,9 @@ function PreQuiz() {
               <div>
                 <button
                   type="button"
-                  className="inline-flex w-full items-center justify-center rounded-md bg-black px-3.5 py-2.5 font-semibold leading-7 text-white hover:bg-black/80"
+                  className="inline-block w-full mx-auto bg-blue-primary mx-2 py-2  px-5 bg-violet-500 text-white font-semibold rounded-full shadow-md hover:bg-blue-primary focus:outline-none focus:ring focus:ring-violet-400 focus:ring-opacity-75"
                 >
-                  Get started <ArrowRight className="ml-2" size={16} />
+                  Get started
                 </button>
               </div>
             </div>
