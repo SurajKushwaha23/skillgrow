@@ -1,12 +1,10 @@
-import React from 'react';
-import { ArrowRight } from 'lucide-react';
 import { NavLink } from 'react-router-dom';
 
 function Login() {
   return (
     <>
       <div className='grid grid-cols-1 lg:grid-cols-2'>
-        <div className='relative flex items-end px-4 pb-10 pt-60 sm:px-6 sm:pb-16 md:justify-center lg:px-8 lg:pb-24 hidden lg:block'>
+        <div className='relative items-end px-4 pb-10 pt-60 sm:px-6 sm:pb-16 md:justify-center lg:px-8 lg:pb-24 hidden lg:block'>
           <div className='absolute inset-0'>
             <img
               className='h-full w-full rounded-md object-cover object-top'
@@ -188,9 +186,9 @@ function Login() {
                 Sign in with Facebook
               </button>
             </div>
-            <div class='flex justify-center'>
+            <div className='flex justify-center'>
               <p className='mt-10 text-center text-sm text-gray-500'>
-                If you don't want to login?{' '}
+                If you do not want to login?{' '}
                 <NavLink
                   to='/'
                   className='font-semibold leading-6 text-indigo-600 hover:text-indigo-500'

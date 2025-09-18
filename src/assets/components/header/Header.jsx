@@ -1,6 +1,6 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
-import { Menu, MoveRight, X } from 'lucide-react';
+import { Menu, X } from 'lucide-react';
 
 const menuItems = [
   {
@@ -48,31 +48,14 @@ function Header() {
               ))}
             </ul>
           </div>
-          <div className='flex hidden lg:block'>
-            <NavLink
-              to='register'
-              className='text-white text-sm text-black font-semibold cursor-pointer'
-            >
+          <div className='hidden lg:block'>
+            <NavLink to='register' className='text-white text-sm font-semibold cursor-pointer'>
               Get started Today
             </NavLink>
 
-            <NavLink
-              to='login'
-              className='px-5 text-white text-sm text-black font-semibold cursor-pointer'
-            >
+            <NavLink to='login' className='px-5 text-white text-sm  font-semibold cursor-pointer'>
               Log In
             </NavLink>
-
-            <div class='user-profile hidden'>
-              <div class='flex flex items-center justify-between'>
-                <img
-                  class='relative mx-2 inline-block h-6 w-6 rounded-full ring-1 ring-white'
-                  src='/user-icon.png'
-                  alt='user profile'
-                />
-                <span class='text-md font-semibold text-white '>Suraj Kushwaha</span>
-              </div>
-            </div>
           </div>
           <div className='lg:hidden'>
             <Menu onClick={toggleMenu} className='h-6 w-6 text-white cursor-pointer text-4xl' />
@@ -114,25 +97,25 @@ function Header() {
                         to='login'
                         className='-m-3 flex items-center rounded-md p-3 text-sm font-semibold hover:bg-gray-50'
                       >
-                        <span class='ml-3 text-base font-medium text-gray-900'> Log in</span>
+                        <span className='ml-3 text-base font-medium text-gray-900'> Log in</span>
                       </NavLink>
                       <NavLink
                         to='register'
                         className='-m-3 flex items-center rounded-md p-3 text-sm font-semibold hover:bg-gray-50'
                       >
-                        <span class='ml-3 text-base font-medium text-gray-900'> Register</span>
+                        <span className='ml-3 text-base font-medium text-gray-900'> Register</span>
                       </NavLink>
                     </nav>
                   </div>
 
-                  <div class='user-profile hidden'>
-                    <div class='flex flex items-center justify-between'>
+                  <div className='user-profile hidden'>
+                    <div className='flex items-center justify-between'>
                       <img
-                        class='relative mx-2 inline-block h-6 w-6 rounded-full ring-1 ring-white'
+                        className='relative mx-2 inline-block h-6 w-6 rounded-full ring-1 ring-white'
                         src='/user-icon.png'
                         alt='user profile'
                       />
-                      <span class='text-sm font-semibold text-gray-800 hover:text-gray-900'>
+                      <span className='text-sm font-semibold text-gray-800 hover:text-gray-900'>
                         Suraj Kushwaha
                       </span>
                     </div>

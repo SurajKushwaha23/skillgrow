@@ -1,13 +1,10 @@
-import React from 'react';
-import { ArrowRight } from 'lucide-react';
-
 function PreQuiz() {
   return (
     <>
       <div className='grid lg:grid-cols-2 gap-4 px-4 py-10 sm:px-6 sm:py-16 lg:px-8 lg:py-24 grid-cols-1'>
         <div className='px-2'>
           <h2 className='text-2xl font-bold leading-tight text-black'>Note :-</h2>
-          <ol class='list-decimal'>
+          <ol className='list-decimal'>
             <li className='py-3 text-lg'>
               Lorem, ipsum dolor sit amet consectetur adipisicing elit. Odit natus nesciunt iusto
               expedita cum nobis dolore distinctio tempore alias nisi.
@@ -69,7 +66,7 @@ function PreQuiz() {
               <div>
                 <button
                   type='button'
-                  className='inline-block w-full mx-auto bg-blue-primary mx-2 py-2  px-5 bg-violet-500 text-white font-semibold rounded-full shadow-md hover:bg-blue-primary focus:outline-hidden focus:ring-3 focus:ring-violet-400 focus:ring-opacity-75'
+                  className='inline-block w-full bg-blue-primary mx-2 py-2  px-5 bg-violet-500 text-white font-semibold rounded-full shadow-md hover:bg-blue-primary focus:outline-hidden focus:ring-3 focus:ring-violet-400 focus:ring-opacity-75'
                 >
                   Get started
                 </button>

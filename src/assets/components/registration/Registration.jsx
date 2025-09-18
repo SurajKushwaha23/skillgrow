@@ -1,11 +1,10 @@
-import React from 'react';
 import { NavLink } from 'react-router-dom';
 
 function Registration() {
   return (
     <>
       <div className='grid grid-cols-1 lg:grid-cols-2'>
-        <div className='relative flex items-end px-4 pb-10 pt-60 sm:px-6 sm:pb-16 md:justify-center lg:px-8 lg:pb-24 hidden lg:block'>
+        <div className='relative items-end px-4 pb-10 pt-60 sm:px-6 sm:pb-16 md:justify-center lg:px-8 lg:pb-24 hidden lg:block'>
           <div className='absolute inset-0'>
             <img
               className='h-full w-full rounded-md object-cover object-top'
@@ -93,7 +92,7 @@ function Registration() {
           </div>
         </div>
 
-        <div className='flex items-center justify-center px-8 py-8 sm:px-12 sm:px-6 sm:py-16 lg:px-8 lg:py-24'>
+        <div className='flex items-center justify-center px-8 py-8 sm:px-12  sm:py-16 lg:px-8 lg:py-24'>
           <div className='xl:mx-auto xl:w-full'>
             <h2 className='text-3xl font-bold leading-tight text-black sm:text-4xl'>
               Sign up to create account
@@ -212,9 +211,9 @@ function Registration() {
                 </button>
               </div>
             </form>
-            <div class='flex justify-center'>
+            <div className='flex justify-center'>
               <p className='mt-10 text-center text-sm text-gray-500'>
-                If you don't want to create account?{' '}
+                If you do not want to create account?{' '}
                 <NavLink
                   to='/'
                   className='font-semibold leading-6 text-indigo-600 hover:text-indigo-500'

@@ -1,4 +1,3 @@
-import React from 'react';
 import { MoveRight } from 'lucide-react';
 import { NavLink } from 'react-router-dom';
 
@@ -98,11 +97,11 @@ function Index() {
       </div>
 
       <section className='mx-auto max-w-7xl bg-gray-50 px-2 py-10 md:px-0'>
-        <div class='mx-auto lg:text-center'>
-          <h2 class='text-xl font-bold leading-tight text-black sm:text-3xl lg:text-4xl'>
+        <div className='mx-auto lg:text-center'>
+          <h2 className='text-xl font-bold leading-tight text-black sm:text-3xl lg:text-4xl'>
             Our Categories
           </h2>
-          <p class='mt-4 max-w-4xl text-lg text-base leading-relaxed text-gray-600 lg:mx-auto'>
+          <p className='mt-4 max-w-4xl text-base leading-relaxed text-gray-600 lg:mx-auto'>
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Similique dolores eligendi
             corporis, quasi et modi atque incidunt eveniet molestias obcaecati?
           </p>
@@ -110,7 +109,10 @@ function Index() {
         <div className=' container px-4 py-10'>
           <ul className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4'>
             {categories.map(item => (
-              <li className='shadow rounded-md flex col-span-1 mb-4 hover:drop-shadow-md'>
+              <li
+                key={item.id}
+                className='shadow rounded-md flex col-span-1 mb-4 hover:drop-shadow-md'
+              >
                 <div
                   style={{ backgroundColor: item.bgColor }}
                   className='text-2xl font-bold text-white max-w-7xl justify-center items-center w-16 shrink-0 flex rounded-l uppercase'

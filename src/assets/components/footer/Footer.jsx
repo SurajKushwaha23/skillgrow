@@ -1,5 +1,3 @@
-import React from 'react';
-
 const menuItems = [
   {
     name: 'Privacy Policy',
@@ -23,7 +21,7 @@ function Footer() {
   return (
     <>
       <footer className='relative w-full border-b bg-gray-800 py-5'>
-        <div className='mx-auto flex max-w-7xl flex items-center justify-between px-4 '>
+        <div className='mx-auto max-w-7xl flex items-center justify-between px-4 '>
           <p className='mb-0 text-md font-semibold text-white cursor-pointer'>
             Copyright © 2024 All rights reserved.
           </p>
