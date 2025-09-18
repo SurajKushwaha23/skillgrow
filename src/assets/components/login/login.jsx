@@ -1,6 +1,30 @@
+import { useForm } from 'react-hook-form';
 import { NavLink } from 'react-router-dom';
 
-function Login() {
+const Login = () => {
+  const {
+    register,
+    formState: { errors },
+    clearErrors,
+    trigger,
+  } = useForm({
+    mode: 'onBlur', // Validate on blur events
+  });
+
+  const handleClearErrors = fieldName => {
+    // Clear errors when the user starts typing
+    clearErrors(fieldName);
+  };
+
+  const handleSubmitClick = async e => {
+    e.preventDefault();
+    const isValid = await trigger();
+
+    if (isValid) {
+      // Submit the form data
+    }
+  };
+
   return (
     <>
       <div className='grid grid-cols-1 lg:grid-cols-2'>
@@ -93,7 +117,7 @@ function Login() {
         </div>
         <div className='flex items-center justify-center px-4 py-10 sm:px-6 sm:py-16 lg:px-8 lg:py-24'>
           <div className='xl:mx-auto xl:w-full xl:max-w-sm 2xl:max-w-md'>
-            <h2 className='text-3xl font-bold leading-tight text-black sm:text-4xl'>Sign in</h2>
+            <h2 className='text-3xl font-bold leading-tight text-black sm:text-4xl'>Login in</h2>
             <p className='mt-2 text-sm text-gray-600'>
               Don&apos;t have an account?{' '}
               <NavLink
@@ -113,10 +137,24 @@ function Login() {
                   </label>
                   <div className='mt-2'>
                     <input
-                      className='flex h-10 w-full rounded-md border border-gray-300 bg-transparent px-3 py-2 text-sm placeholder:text-gray-400 focus:outline-hidden focus:ring-1 focus:ring-gray-400 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50'
+                      {...register('email', {
+                        required: 'Email is required',
+                        pattern: {
+                          value: /^\S+@\S+$/i,
+                          message: 'Email is invalid',
+                        },
+                      })}
+                      id='email'
+                      onChange={() => handleClearErrors('email')}
+                      className={`flex h-10 w-full rounded-md border border-gray-300 bg-transparent px-3 py-2 text-sm placeholder:text-gray-400 focus:outline-hidden focus:ring-1 focus:ring-gray-400 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50 ${
+                        errors.email ? 'border-red-500' : ''
+                      }`}
                       type='email'
                       placeholder='Email'
                     ></input>
+                    {errors.email && (
+                      <span className='text-red-500 text-sm'>{errors.email.message}</span>
+                    )}
                   </div>
                 </div>
                 <div>
@@ -136,18 +174,27 @@ function Login() {
                   </div>
                   <div className='mt-2'>
                     <input
-                      className='flex h-10 w-full rounded-md border border-gray-300 bg-transparent px-3 py-2 text-sm placeholder:text-gray-400 focus:outline-hidden focus:ring-1 focus:ring-gray-400 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50'
+                      id='password'
+                      {...register('password', { required: 'Password is required' })}
+                      className={`flex h-10 w-full rounded-md border border-gray-300 bg-transparent px-3 py-2 text-sm placeholder:text-gray-400 focus:outline-hidden focus:ring-1 focus:ring-gray-400 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50 ${
+                        errors.password ? 'border-red-500' : ''
+                      }`}
+                      onChange={() => handleClearErrors('password')}
                       type='password'
                       placeholder='Password'
                     ></input>
+                    {errors.password && (
+                      <span className='text-red-500 text-sm'>{errors.password.message}</span>
+                    )}
                   </div>
                 </div>
                 <div>
                   <button
-                    type='button'
+                    type='submit'
+                    onClick={handleSubmitClick}
                     className='inline-block mx-auto w-full bg-blue-primary py-2  px-5 bg-violet-500 text-white text-sm font-semibold rounded-full shadow-md hover:bg-blue-primary focus:outline-hidden focus:ring-3 focus:ring-violet-400 focus:ring-opacity-75'
                   >
-                    Get started
+                    Login
                   </button>
                 </div>
               </div>
@@ -202,6 +249,6 @@ function Login() {
       </div>
     </>
   );
-}
+};
 
 export default Login;
