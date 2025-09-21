@@ -7,6 +7,7 @@ const Login = () => {
     formState: { errors },
     clearErrors,
     trigger,
+    reset,
   } = useForm({
     mode: 'onBlur', // Validate on blur events
   });
@@ -21,7 +22,8 @@ const Login = () => {
     const isValid = await trigger();
 
     if (isValid) {
-      // Submit the form data
+      console.log('Form is valid, proceed with submission');
+      reset(); // Reset the form after successful submission
     }
   };
 
@@ -119,7 +121,7 @@ const Login = () => {
           <div className='xl:mx-auto xl:w-full xl:max-w-sm 2xl:max-w-md'>
             <h2 className='text-3xl font-bold leading-tight text-black sm:text-4xl'>Login in</h2>
             <p className='mt-2 text-sm text-gray-600'>
-              Don&apos;t have an account?{' '}
+              Do not have an account?{' '}
               <NavLink
                 to='/register'
                 title=''
@@ -131,7 +133,7 @@ const Login = () => {
             <form action='#' method='POST' className='mt-8'>
               <div className='space-y-5'>
                 <div>
-                  <label htmlFor='' className='text-base font-medium text-gray-900'>
+                  <label htmlFor='' className='block text-sm font-medium text-gray-700'>
                     {' '}
                     Email address{' '}
                   </label>
@@ -153,13 +155,13 @@ const Login = () => {
                       placeholder='Email'
                     ></input>
                     {errors.email && (
-                      <span className='text-red-500 text-sm'>{errors.email.message}</span>
+                      <span className='text-red-500 text-xs'>{errors.email.message}</span>
                     )}
                   </div>
                 </div>
                 <div>
                   <div className='flex items-center justify-between'>
-                    <label htmlFor='' className='text-base font-medium text-gray-900'>
+                    <label htmlFor='' className='block text-sm font-medium text-gray-700'>
                       {' '}
                       Password{' '}
                     </label>
@@ -184,7 +186,7 @@ const Login = () => {
                       placeholder='Password'
                     ></input>
                     {errors.password && (
-                      <span className='text-red-500 text-sm'>{errors.password.message}</span>
+                      <span className='text-red-500 text-xs'>{errors.password.message}</span>
                     )}
                   </div>
                 </div>

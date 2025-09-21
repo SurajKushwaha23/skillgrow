@@ -1,6 +1,32 @@
 import { NavLink } from 'react-router-dom';
+import { useForm } from 'react-hook-form';
 
 function Registration() {
+  const {
+    register,
+    formState: { errors },
+    clearErrors,
+    trigger,
+    reset,
+  } = useForm({
+    mode: 'onBlur', // Validate on blur events
+  });
+
+  const handleClearErrors = fieldName => {
+    // Clear errors when the user starts typing
+    clearErrors(fieldName);
+  };
+
+  const handleSubmitClick = async e => {
+    e.preventDefault();
+    const isValid = await trigger();
+
+    if (isValid) {
+      console.log('Form is valid, proceed with submission');
+      reset(); // Reset the form after successful submission
+    }
+  };
+
   return (
     <>
       <div className='grid grid-cols-1 lg:grid-cols-2'>
@@ -115,10 +141,20 @@ function Registration() {
                 </label>
 
                 <input
-                  className='flex mt-1 h-10 w-full rounded-md border border-gray-300 bg-transparent px-3 py-2 text-sm placeholder:text-gray-400 focus:outline-hidden focus:ring-1 focus:ring-gray-400 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50 shadow-xs'
+                  id='FirstName'
+                  {...register('FirstName', {
+                    required: 'First Name is required',
+                  })}
                   type='text'
+                  onChange={() => handleClearErrors('FirstName')}
+                  className={`flex mt-1 h-10 w-full rounded-md border border-gray-300 bg-transparent px-3 py-2 text-sm placeholder:text-gray-400 focus:outline-hidden focus:ring-1 focus:ring-gray-400 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50 shadow-xs ${
+                    errors.FirstName ? 'border-red-500' : ''
+                  }`}
                   placeholder='First Name'
                 />
+                {errors.FirstName && (
+                  <span className='text-red-500 text-xs'>{errors.FirstName.message}</span>
+                )}
               </div>
 
               <div className='col-span-6 sm:col-span-3'>
@@ -127,51 +163,71 @@ function Registration() {
                 </label>
 
                 <input
-                  className='flex mt-1 h-10 w-full rounded-md border border-gray-300 bg-transparent px-3 py-2 text-sm placeholder:text-gray-400 focus:outline-hidden focus:ring-1 focus:ring-gray-400 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50 shadow-xs'
+                  id='LastName'
+                  {...register('LastName', {
+                    required: 'Last Name is required',
+                  })}
+                  className={`flex mt-1 h-10 w-full rounded-md border border-gray-300 bg-transparent px-3 py-2 text-sm placeholder:text-gray-400 focus:outline-hidden focus:ring-1 focus:ring-gray-400 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50 shadow-xs ${
+                    errors.LastName ? 'border-red-500' : ''
+                  }`}
                   type='text'
                   placeholder='Last Name'
                 />
+                {errors.LastName && (
+                  <span className='text-red-500 text-xs'>{errors.LastName.message}</span>
+                )}
               </div>
 
               <div className='col-span-6'>
                 <label htmlFor='Email' className='block text-sm font-medium text-gray-700'>
-                  {' '}
                   Email{' '}
                 </label>
 
                 <input
-                  className='flex mt-1 h-10 w-full rounded-md border border-gray-300 bg-transparent px-3 py-2 text-sm placeholder:text-gray-400 focus:outline-hidden focus:ring-1 focus:ring-gray-400 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50 shadow-xs'
+                  id='Email'
+                  {...register('Email', {
+                    required: 'Email is required',
+                    pattern: {
+                      value: /^\S+@\S+$/i,
+                      message: 'Email is invalid',
+                    },
+                  })}
+                  className={`flex mt-1 h-10 w-full rounded-md border border-gray-300 bg-transparent px-3 py-2 text-sm placeholder:text-gray-400 focus:outline-hidden focus:ring-1 focus:ring-gray-400 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50 shadow-xs ${
+                    errors.Email ? 'border-red-500' : ''
+                  }`}
                   type='email'
                   placeholder='Email'
                 />
+                {errors.Email && (
+                  <span className='text-red-500 text-xs'>{errors.Email.message}</span>
+                )}
               </div>
 
-              <div className='col-span-6 sm:col-span-3'>
+              <div className='col-span-6'>
                 <label htmlFor='Password' className='block text-sm font-medium text-gray-700'>
                   {' '}
                   Password{' '}
                 </label>
 
                 <input
-                  className='flex mt-1 h-10 w-full rounded-md border border-gray-300 bg-transparent px-3 py-2 text-sm placeholder:text-gray-400 focus:outline-hidden focus:ring-1 focus:ring-gray-400 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50 shadow-xs'
+                  id='Password'
+                  {...register('Password', {
+                    required: 'Password is required',
+                    minLength: {
+                      value: 6,
+                      message: 'Password must be at least 6 characters',
+                    },
+                  })}
+                  onChange={() => handleClearErrors('Password')}
+                  className={`flex mt-1 h-10 w-full rounded-md border border-gray-300 bg-transparent px-3 py-2 text-sm placeholder:text-gray-400 focus:outline-hidden focus:ring-1 focus:ring-gray-400 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50 shadow-xs ${
+                    errors.Password ? 'border-red-500' : ''
+                  }`}
                   type='password'
                   placeholder='Password'
                 />
-              </div>
-
-              <div className='col-span-6 sm:col-span-3'>
-                <label
-                  htmlFor='PasswordConfirmation'
-                  className='block text-sm font-medium text-gray-700'
-                >
-                  Password Confirmation
-                </label>
-
-                <input
-                  className='flex mt-1 h-10 w-full rounded-md border border-gray-300 bg-transparent px-3 py-2 text-sm placeholder:text-gray-400 focus:outline-hidden focus:ring-1 focus:ring-gray-400 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50 shadow-xs'
-                  type='password'
-                  placeholder='Password Confirmation'
-                />
+                {errors.Password && (
+                  <span className='text-red-500 text-xs'>{errors.Password.message}</span>
+                )}
               </div>
 
               <div className='col-span-6'>
@@ -179,7 +235,9 @@ function Registration() {
                   <input
                     type='checkbox'
                     id='MarketingAccept'
-                    name='marketing_accept'
+                    {...register('MarketingAccept', {
+                      required: 'You must accept to continue',
+                    })}
                     className='size-5 rounded-md border-gray-200 bg-white shadow-xs'
                   />
 
@@ -188,6 +246,9 @@ function Registration() {
                     announcements.
                   </span>
                 </label>
+                {errors.MarketingAccept && (
+                  <span className='text-red-500 text-xs'>{errors.MarketingAccept.message}</span>
+                )}
               </div>
 
               <div className='col-span-6'>
@@ -206,7 +267,10 @@ function Registration() {
               </div>
 
               <div className='col-span-6 sm:flex sm:items-center sm:gap-4'>
-                <button className='inline-block mx-auto w-full bg-blue-primary py-2  px-5 bg-violet-500 text-white text-sm font-semibold rounded-full shadow-md hover:bg-blue-primary focus:outline-hidden focus:ring-3 focus:ring-violet-400 focus:ring-opacity-75'>
+                <button
+                  className='inline-block mx-auto w-full bg-blue-primary py-2  px-5 bg-violet-500 text-white text-sm font-semibold rounded-full shadow-md hover:bg-blue-primary focus:outline-hidden focus:ring-3 focus:ring-violet-400 focus:ring-opacity-75'
+                  onClick={handleSubmitClick}
+                >
                   Create an account
                 </button>
               </div>
