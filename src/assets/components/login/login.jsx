@@ -1,19 +1,17 @@
 import { useForm } from 'react-hook-form';
 import { NavLink } from 'react-router-dom';
 
+import { LOGIN_FORM_FIELDS } from '../../constant/constant';
+
+import CustomInputBox from '../../ui/fields/CustomInputBox';
+
 const Login = () => {
-  const {
-    register,
-    formState: { errors },
-    clearErrors,
-    trigger,
-    reset,
-  } = useForm({
+  const { EMAIL, PASSWORD } = LOGIN_FORM_FIELDS;
+  const { trigger, reset, clearErrors } = useForm({
     mode: 'onBlur', // Validate on blur events
   });
 
   const handleClearErrors = fieldName => {
-    // Clear errors when the user starts typing
     clearErrors(fieldName);
   };
 
@@ -132,64 +130,21 @@ const Login = () => {
             </p>
             <form action='#' method='POST' className='mt-8'>
               <div className='space-y-5'>
-                <div>
-                  <label htmlFor='' className='block text-sm font-medium text-gray-700'>
-                    {' '}
-                    Email address{' '}
-                  </label>
-                  <div className='mt-2'>
-                    <input
-                      {...register('email', {
-                        required: 'Email is required',
-                        pattern: {
-                          value: /^\S+@\S+$/i,
-                          message: 'Email is invalid',
-                        },
-                      })}
-                      id='email'
-                      onChange={() => handleClearErrors('email')}
-                      className={`flex h-10 w-full rounded-md border border-gray-300 bg-transparent px-3 py-2 text-sm placeholder:text-gray-400 focus:outline-hidden focus:ring-1 focus:ring-gray-400 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50 ${
-                        errors.email ? 'border-red-500' : ''
-                      }`}
-                      type='email'
-                      placeholder='Email'
-                    ></input>
-                    {errors.email && (
-                      <span className='text-red-500 text-xs'>{errors.email.message}</span>
-                    )}
-                  </div>
-                </div>
-                <div>
-                  <div className='flex items-center justify-between'>
-                    <label htmlFor='' className='block text-sm font-medium text-gray-700'>
-                      {' '}
-                      Password{' '}
-                    </label>
-                    <a
-                      href='#'
-                      title=''
-                      className='text-sm font-semibold text-blue-primary hover:underline'
-                    >
-                      {' '}
-                      Forgot password?{' '}
-                    </a>
-                  </div>
-                  <div className='mt-2'>
-                    <input
-                      id='password'
-                      {...register('password', { required: 'Password is required' })}
-                      className={`flex h-10 w-full rounded-md border border-gray-300 bg-transparent px-3 py-2 text-sm placeholder:text-gray-400 focus:outline-hidden focus:ring-1 focus:ring-gray-400 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50 ${
-                        errors.password ? 'border-red-500' : ''
-                      }`}
-                      onChange={() => handleClearErrors('password')}
-                      type='password'
-                      placeholder='Password'
-                    ></input>
-                    {errors.password && (
-                      <span className='text-red-500 text-xs'>{errors.password.message}</span>
-                    )}
-                  </div>
-                </div>
+                <CustomInputBox
+                  id={EMAIL.id}
+                  formlabel={EMAIL.label}
+                  type={EMAIL.type}
+                  onChange={() => handleClearErrors('email')}
+                  validationObject={EMAIL.validation}
+                />
+                <CustomInputBox
+                  id={PASSWORD.id}
+                  formlabel={PASSWORD.label}
+                  type={PASSWORD.type}
+                  onChange={() => handleClearErrors('password')}
+                  validationObject={PASSWORD.validation}
+                />
+
                 <div>
                   <button
                     type='submit'
