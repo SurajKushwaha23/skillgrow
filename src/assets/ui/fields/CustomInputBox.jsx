@@ -1,7 +1,7 @@
 import { useForm } from 'react-hook-form';
 
 const CustomInputBox = props => {
-  const { id, formlabel, validationObject } = props;
+  const { id, formlabel, validationObject, required } = props;
 
   const {
     register,
@@ -14,6 +14,7 @@ const CustomInputBox = props => {
     <>
       <label htmlFor={id} className='block text-sm font-medium text-gray-700 mb-1'>
         {formlabel}
+        {required && <span className='text-red-500'>*</span>}
       </label>
       <div className='mt-2'>
         <input

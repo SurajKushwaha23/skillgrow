@@ -136,6 +136,7 @@ const Login = () => {
                   type={EMAIL.type}
                   onChange={() => handleClearErrors('email')}
                   validationObject={EMAIL.validation}
+                  required={true}
                 />
                 <CustomInputBox
                   id={PASSWORD.id}
@@ -143,6 +144,7 @@ const Login = () => {
                   type={PASSWORD.type}
                   onChange={() => handleClearErrors('password')}
                   validationObject={PASSWORD.validation}
+                  required={true}
                 />
 
                 <div>
