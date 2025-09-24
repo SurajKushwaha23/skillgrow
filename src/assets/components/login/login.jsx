@@ -1,4 +1,3 @@
-import { useForm } from 'react-hook-form';
 import { NavLink } from 'react-router-dom';
 
 import { LOGIN_FORM_FIELDS } from '../../constant/constant';
@@ -7,22 +6,9 @@ import CustomInputBox from '../../ui/fields/CustomInputBox';
 
 const Login = () => {
   const { EMAIL, PASSWORD } = LOGIN_FORM_FIELDS;
-  const { trigger, reset, clearErrors } = useForm({
-    mode: 'onBlur', // Validate on blur events
-  });
-
-  const handleClearErrors = fieldName => {
-    clearErrors(fieldName);
-  };
 
   const handleSubmitClick = async e => {
     e.preventDefault();
-    const isValid = await trigger();
-
-    if (isValid) {
-      console.log('Form is valid, proceed with submission');
-      reset(); // Reset the form after successful submission
-    }
   };
 
   return (
@@ -132,19 +118,17 @@ const Login = () => {
               <div className='space-y-5'>
                 <CustomInputBox
                   id={EMAIL.id}
-                  formlabel={EMAIL.label}
+                  fieldLabel={EMAIL.label}
                   type={EMAIL.type}
-                  onChange={() => handleClearErrors('email')}
                   validationObject={EMAIL.validation}
-                  required={true}
+                  required
                 />
                 <CustomInputBox
                   id={PASSWORD.id}
-                  formlabel={PASSWORD.label}
+                  fieldLabel={PASSWORD.label}
                   type={PASSWORD.type}
-                  onChange={() => handleClearErrors('password')}
                   validationObject={PASSWORD.validation}
-                  required={true}
+                  required
                 />
 
                 <div>

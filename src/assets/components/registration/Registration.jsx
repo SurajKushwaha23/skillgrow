@@ -1,30 +1,13 @@
 import { NavLink } from 'react-router-dom';
-import { useForm } from 'react-hook-form';
+
+import { SIGNUP_FORM_FIELDS } from '../../constant/constant.js';
+
+import CustomInputBox from '../../ui/fields/CustomInputBox.jsx';
 
 function Registration() {
-  const {
-    register,
-    formState: { errors },
-    clearErrors,
-    trigger,
-    reset,
-  } = useForm({
-    mode: 'onBlur', // Validate on blur events
-  });
-
-  const handleClearErrors = fieldName => {
-    // Clear errors when the user starts typing
-    clearErrors(fieldName);
-  };
-
+  const { FIRST_NAME, LAST_NAME, EMAIL, PASSWORD } = SIGNUP_FORM_FIELDS;
   const handleSubmitClick = async e => {
     e.preventDefault();
-    const isValid = await trigger();
-
-    if (isValid) {
-      console.log('Form is valid, proceed with submission');
-      reset(); // Reset the form after successful submission
-    }
   };
 
   return (
@@ -136,98 +119,42 @@ function Registration() {
 
             <form action='#' className='mt-8 grid grid-cols-6 gap-6'>
               <div className='col-span-6 sm:col-span-3'>
-                <label htmlFor='FirstName' className='block text-sm font-medium text-gray-700'>
-                  First Name
-                </label>
-
-                <input
-                  id='FirstName'
-                  {...register('FirstName', {
-                    required: 'First Name is required',
-                  })}
-                  type='text'
-                  onChange={() => handleClearErrors('FirstName')}
-                  className={`flex mt-1 h-10 w-full rounded-md border border-gray-300 bg-transparent px-3 py-2 text-sm placeholder:text-gray-400 focus:outline-hidden focus:ring-1 focus:ring-gray-400 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50 shadow-xs ${
-                    errors.FirstName ? 'border-red-500' : ''
-                  }`}
-                  placeholder='First Name'
+                <CustomInputBox
+                  id={FIRST_NAME.id}
+                  fieldLabel={FIRST_NAME.label}
+                  type={FIRST_NAME.type}
+                  validationObject={FIRST_NAME.validation}
+                  required
                 />
-                {errors.FirstName && (
-                  <span className='text-red-500 text-xs'>{errors.FirstName.message}</span>
-                )}
               </div>
 
               <div className='col-span-6 sm:col-span-3'>
-                <label htmlFor='LastName' className='block text-sm font-medium text-gray-700'>
-                  Last Name
-                </label>
-
-                <input
-                  id='LastName'
-                  {...register('LastName', {
-                    required: 'Last Name is required',
-                  })}
-                  className={`flex mt-1 h-10 w-full rounded-md border border-gray-300 bg-transparent px-3 py-2 text-sm placeholder:text-gray-400 focus:outline-hidden focus:ring-1 focus:ring-gray-400 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50 shadow-xs ${
-                    errors.LastName ? 'border-red-500' : ''
-                  }`}
-                  type='text'
-                  placeholder='Last Name'
+                <CustomInputBox
+                  id={LAST_NAME.id}
+                  fieldLabel={LAST_NAME.label}
+                  type={LAST_NAME.type}
+                  validationObject={LAST_NAME.validation}
                 />
-                {errors.LastName && (
-                  <span className='text-red-500 text-xs'>{errors.LastName.message}</span>
-                )}
               </div>
 
               <div className='col-span-6'>
-                <label htmlFor='Email' className='block text-sm font-medium text-gray-700'>
-                  Email{' '}
-                </label>
-
-                <input
-                  id='Email'
-                  {...register('Email', {
-                    required: 'Email is required',
-                    pattern: {
-                      value: /^\S+@\S+$/i,
-                      message: 'Email is invalid',
-                    },
-                  })}
-                  className={`flex mt-1 h-10 w-full rounded-md border border-gray-300 bg-transparent px-3 py-2 text-sm placeholder:text-gray-400 focus:outline-hidden focus:ring-1 focus:ring-gray-400 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50 shadow-xs ${
-                    errors.Email ? 'border-red-500' : ''
-                  }`}
-                  type='email'
-                  placeholder='Email'
+                <CustomInputBox
+                  id={EMAIL.id}
+                  fieldLabel={EMAIL.label}
+                  type={EMAIL.type}
+                  validationObject={EMAIL.validation}
+                  required
                 />
-                {errors.Email && (
-                  <span className='text-red-500 text-xs'>{errors.Email.message}</span>
-                )}
               </div>
 
               <div className='col-span-6'>
-                <label htmlFor='Password' className='block text-sm font-medium text-gray-700'>
-                  {' '}
-                  Password{' '}
-                </label>
-
-                <input
-                  id='Password'
-                  {...register('Password', {
-                    required: 'Password is required',
-                    minLength: {
-                      value: 6,
-                      message: 'Password must be at least 6 characters',
-                    },
-                  })}
-                  onChange={() => handleClearErrors('Password')}
-                  className={`flex mt-1 h-10 w-full rounded-md border border-gray-300 bg-transparent px-3 py-2 text-sm placeholder:text-gray-400 focus:outline-hidden focus:ring-1 focus:ring-gray-400 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50 shadow-xs ${
-                    errors.Password ? 'border-red-500' : ''
-                  }`}
-                  type='password'
-                  placeholder='Password'
+                <CustomInputBox
+                  id={PASSWORD.id}
+                  fieldLabel={PASSWORD.label}
+                  type={PASSWORD.type}
+                  validationObject={PASSWORD.validation}
+                  required
                 />
-                {errors.Password && (
-                  <span className='text-red-500 text-xs'>{errors.Password.message}</span>
-                )}
               </div>
 
               <div className='col-span-6'>
@@ -235,9 +162,6 @@ function Registration() {
                   <input
                     type='checkbox'
                     id='MarketingAccept'
-                    {...register('MarketingAccept', {
-                      required: 'You must accept to continue',
-                    })}
                     className='size-5 rounded-md border-gray-200 bg-white shadow-xs'
                   />
 
@@ -246,9 +170,6 @@ function Registration() {
                     announcements.
                   </span>
                 </label>
-                {errors.MarketingAccept && (
-                  <span className='text-red-500 text-xs'>{errors.MarketingAccept.message}</span>
-                )}
               </div>
 
               <div className='col-span-6'>
