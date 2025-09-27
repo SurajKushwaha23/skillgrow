@@ -1,7 +1,7 @@
 // eslint-disable-next-line no-unused-vars
 import React from 'react';
 import { Routes, Route, Outlet } from 'react-router-dom';
-import { PublicRoutes, layouts } from './routes/publicRoutes';
+import { PublicRoutes, layouts } from '../router/routes/PublicRoutes';
 import PageNotFound from '../components/shared/PageNotFound';
 
 const AppRouter = () => {
