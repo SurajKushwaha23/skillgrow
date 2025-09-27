@@ -1,12 +1,13 @@
-import React from 'react';
-import { ArrowLeft } from 'lucide-react';
 import { NavLink } from 'react-router-dom';
 import { useLocation } from 'react-router-dom';
+import Header from '../shared/Header';
+import Footer from '../shared/Footer';
 
 function PageNotFound() {
   const location = useLocation();
   return (
     <>
+      <Header />
       <div className='py-24'>
         <div className='text-center'>
           <p className='font-bold text-9xl text-blue-primary drop-shadow-xs'>404</p>
@@ -32,6 +33,7 @@ function PageNotFound() {
           </div>
         </div>
       </div>
+      <Footer />
     </>
   );
 }

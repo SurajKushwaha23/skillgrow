@@ -4,11 +4,10 @@ import React, { lazy } from 'react';
 import { ROUTE_PATHS } from '../constants/routePaths.js';
 import RootLayout from '../../layouts/RootLayout.jsx';
 import AuthLayout from '../../layouts/AuthLayout.jsx';
-import Index from '../../assets/components/index/Index';
-import Login from '../../assets/components/login/Login';
-import Registration from '../../assets/components/registration/Registration';
+import Index from '../../pages/index';
+import Login from '../../pages/login/Login.jsx';
+import Registration from '../../pages/registration/Registration';
 import PreQuiz from '../../assets/components/prequiz/PreQuiz';
-import PageNotFound from '../../assets/components/pageNotFound/PageNotFound.jsx';
 
 // Map layout names to their components (add more as needed)
 export const layouts = {

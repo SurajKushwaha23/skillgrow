@@ -2,7 +2,7 @@
 import React from 'react';
 import { Routes, Route, Outlet } from 'react-router-dom';
 import { PublicRoutes, layouts } from './routes/publicRoutes';
-import PageNotFound from '../assets/components/pageNotFound/PageNotFound';
+import PageNotFound from '../components/shared/PageNotFound';
 
 const AppRouter = () => {
   return (
