@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { NavLink } from 'react-router-dom';
 import { Menu, X } from 'lucide-react';
 
@@ -27,6 +27,11 @@ function Header() {
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
   };
+
+  useEffect(() => {
+    console.log('Header component mounted');
+  }, []);
+
   return (
     <>
       <header className='relative w-full border-b bg-blue-primary py-3 shadow-sm'>

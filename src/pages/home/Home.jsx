@@ -52,7 +52,7 @@ const categories = [
   },
 ];
 
-function Index() {
+const Home = () => {
   return (
     <>
       <div className='relative w-full bg-white'>
@@ -108,9 +108,9 @@ function Index() {
         </div>
         <div className=' container px-4 py-10'>
           <ul className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4'>
-            {categories.map(item => (
+            {categories.map((item, index) => (
               <li
-                key={item.id}
+                key={index}
                 className='shadow rounded-md flex col-span-1 mb-4 hover:drop-shadow-md'
               >
                 <div
@@ -134,6 +134,6 @@ function Index() {
       </section>
     </>
   );
-}
+};
 
-export default Index;
+export default Home;
