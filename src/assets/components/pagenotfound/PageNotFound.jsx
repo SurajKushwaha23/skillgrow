@@ -1,8 +1,10 @@
 import React from 'react';
 import { ArrowLeft } from 'lucide-react';
 import { NavLink } from 'react-router-dom';
+import { useLocation } from 'react-router-dom';
 
 function PageNotFound() {
+  const location = useLocation();
   return (
     <>
       <div className='py-24'>
@@ -13,14 +15,19 @@ function PageNotFound() {
           </h1>
 
           <p className='mt-4 text-base leading-7 font-semibold text-gray-600'>
-            Sorry, we could not find the page you are looking for.
+            Sorry, we could not find the page{' '}
+            <span className='text-white bg-blue-700 px-2 py-1 rounded-sm text-sm'>
+              {location.pathname}
+            </span>{' '}
+            you are looking for.
           </p>
+
           <div className='mt-4 flex items-center justify-center gap-x-3'>
             <NavLink
               to='/'
               className='inline-flex mx-auto bg-blue-primary py-2  px-5 bg-violet-500 text-white text-sm font-semibold rounded-full shadow-md hover:bg-blue-primary focus:outline-hidden focus:ring-3 focus:ring-violet-400 focus:ring-opacity-75'
             >
-              Home
+              Go to Homepage
             </NavLink>
           </div>
         </div>
