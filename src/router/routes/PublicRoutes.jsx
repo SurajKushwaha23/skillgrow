@@ -4,7 +4,7 @@ import React, { lazy } from 'react';
 import { ROUTE_PATHS } from '../constants/routePaths';
 import RootLayout from '../../layouts/RootLayout';
 import AuthLayout from '../../layouts/AuthLayout';
-import Index from '../../pages/index/Index';
+import Home from '../../pages/home/Home';
 import Login from '../../pages/login/Login';
 import Registration from '../../pages/registration/Registration';
 import PreQuiz from '../../assets/components/prequiz/PreQuiz';
@@ -19,7 +19,7 @@ export const PublicRoutes = [
   {
     path: ROUTE_PATHS.HOME,
     Index: true,
-    element: <Index />,
+    element: <Home />,
     layout: 'Root',
   },
   {
