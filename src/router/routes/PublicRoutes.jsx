@@ -4,7 +4,7 @@ import React, { lazy } from 'react';
 import { ROUTE_PATHS } from '../constants/routePaths.js';
 import RootLayout from '../../layouts/RootLayout.jsx';
 import AuthLayout from '../../layouts/AuthLayout.jsx';
-import Index from '../../pages/index';
+import Index from '../../pages/index.jsx';
 import Login from '../../pages/login/Login.jsx';
 import Registration from '../../pages/registration/Registration';
 import PreQuiz from '../../assets/components/prequiz/PreQuiz';
