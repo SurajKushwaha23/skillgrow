@@ -1,5 +1,3 @@
-import React, { useState } from 'react';
-
 const people = [
   {
     name: 'John Doe',
@@ -12,9 +10,7 @@ const people = [
   },
 ];
 
-function Result() {
-  const [qualify, setQualify] = useState(false);
-
+const Result = () => {
   return (
     <>
       <section className='bg-white'>
@@ -122,6 +118,6 @@ function Result() {
       </div>
     </>
   );
-}
+};
 
 export default Result;
