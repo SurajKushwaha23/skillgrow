@@ -7,7 +7,6 @@ import AuthLayout from '../../layouts/AuthLayout';
 import Home from '../../pages/home/Home';
 import Login from '../../pages/login/Login';
 import Registration from '../../pages/registration/Registration';
-import PreQuiz from '../../assets/components/prequiz/Prequiz';
 
 // Map layout names to their components (add more as needed)
 export const layouts = {
@@ -31,11 +30,5 @@ export const PublicRoutes = [
     path: ROUTE_PATHS.REGISTER,
     element: <Registration />,
     layout: 'Auth',
-  },
-
-  {
-    path: ROUTE_PATHS.PRE_QUIZ,
-    element: <PreQuiz />,
-    layout: 'Root',
   },
 ];
