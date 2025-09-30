@@ -1,11 +1,11 @@
 // eslint-disable-next-line no-unused-vars
 import React, { lazy } from 'react';
 
-import { ROUTE_PATHS } from '../constants/routePaths.js';
-import RootLayout from '../../layouts/RootLayout.jsx';
-import AuthLayout from '../../layouts/AuthLayout.jsx';
-import Index from '../../pages/index.jsx';
-import Login from '../../pages/login/Login.jsx';
+import { ROUTE_PATHS } from '../constants/routePaths';
+import RootLayout from '../../layouts/RootLayout';
+import AuthLayout from '../../layouts/AuthLayout';
+import Index from '../../pages/index/Index';
+import Login from '../../pages/login/Login';
 import Registration from '../../pages/registration/Registration';
 import PreQuiz from '../../assets/components/prequiz/PreQuiz';
 
