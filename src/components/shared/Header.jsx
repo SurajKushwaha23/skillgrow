@@ -5,9 +5,8 @@ import { Menu, X, Stethoscope, Heart, Phone, MapPin, Clock, User, ArrowRight } f
 const menuItems = [
   { name: 'Home', href: '/' },
   { name: 'About Us', href: 'about' },
-  { name: 'Services', href: 'service' },
   { name: 'Doctors', href: 'doctors' },
-  { name: 'Contact', href: 'contact' },
+  { name: 'Our Specialities', href: 'specialities' },
 ];
 
 function Header() {
