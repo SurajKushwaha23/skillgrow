@@ -44,7 +44,8 @@ const Carousel = ({
           <div key={item.id || index} className='w-full flex-shrink-0'>
             <div className='relative h-96 md:h-[500px]'>
               <img src={item.image} alt={item.title} className='w-full h-full object-cover' />
-              <div className='absolute inset-0  bg-opacity-40 flex items-center justify-center'>
+              {/* Adjusted overlay for better balance */}
+              <div className='absolute inset-0 bg-black/30 flex items-center justify-center'>
                 <div className='text-center text-white'>
                   <h2 className='text-3xl md:text-5xl font-bold mb-4'>{item.title}</h2>
                   <p className='text-xl md:text-2xl'>{item.description}</p>

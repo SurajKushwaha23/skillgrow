@@ -4,7 +4,6 @@ import Header from '../shared/Header';
 import Footer from '../shared/Footer';
 
 function PageNotFound() {
-  const location = useLocation();
   return (
     <>
       <Header />
@@ -16,11 +15,7 @@ function PageNotFound() {
           </h1>
 
           <p className='mt-4 text-base leading-7 font-semibold text-gray-600'>
-            Sorry, we could not find the page{' '}
-            <span className='text-white bg-blue-700 px-2 py-1 rounded-sm text-sm'>
-              {location.pathname}
-            </span>{' '}
-            you are looking for.
+            Sorry, we could not find the page you are looking for.
           </p>
 
           <div className='mt-4 flex items-center justify-center gap-x-3'>
