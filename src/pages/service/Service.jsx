@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom';
 import { servicesData } from '../../assets/mock/mockServicesData';
+import ServiceCard from '../../components/ui/service-card/ServiceCard';
 
 const Service = () => {
   return (
@@ -24,47 +25,7 @@ const Service = () => {
           {/* Services Grid */}
           <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-12'>
             {servicesData.map(service => (
-              <Link key={service.id} to={service.path} className='group'>
-                <div className='bg-white border border-gray-200 rounded-xl p-6 h-full flex flex-col items-center text-center transition-all duration-200 group-hover:border-blue-300 group-hover:shadow-lg'>
-                  {/* Icon Container */}
-                  <div className='w-16 h-16 bg-blue-50 rounded-lg flex items-center justify-center mb-6 group-hover:bg-blue-100 transition-colors duration-200'>
-                    <svg
-                      xmlns='http://www.w3.org/2000/svg'
-                      className='h-8 w-8 text-blue-600'
-                      fill='none'
-                      viewBox='0 0 24 24'
-                      stroke='currentColor'
-                    >
-                      {service.icon.map((pathProps, index) => (
-                        <path
-                          key={index}
-                          strokeLinecap={pathProps.strokeLinecap}
-                          strokeLinejoin={pathProps.strokeLinejoin}
-                          strokeWidth={pathProps.strokeWidth}
-                          d={pathProps.d}
-                        />
-                      ))}
-                    </svg>
-                  </div>
-
-                  {/* Service Title */}
-                  <h3 className='text-xl font-bold text-gray-900 mb-4 group-hover:text-blue-700 transition-colors duration-200'>
-                    {service.title}
-                  </h3>
-
-                  {/* Status Indicator */}
-                  <div className='flex items-center gap-2 mb-4'>
-                    <div className='w-2 h-2 bg-green-500 rounded-full'></div>
-                    <span className='text-green-600 font-medium text-sm'>{service.status}</span>
-                  </div>
-
-                  {/* Service Count */}
-                  <div className='text-2xl font-bold text-blue-600 mb-4'>{service.count}</div>
-
-                  {/* Subtle Divider */}
-                  <div className='w-12 h-0.5 bg-gray-200 group-hover:bg-blue-400 transition-colors duration-200 mt-2'></div>
-                </div>
-              </Link>
+              <ServiceCard key={service.id} service={service} />
             ))}
           </div>
 
@@ -77,7 +38,7 @@ const Service = () => {
             </p>
             <div className='flex flex-col sm:flex-row gap-4 justify-center'>
               <Link
-                to='/services'
+                to='/serviceslist'
                 className='inline-flex items-center justify-center px-8 py-3 bg-blue-600 text-white font-semibold rounded-lg hover:bg-blue-700 transition-colors duration-200'
               >
                 View All Services

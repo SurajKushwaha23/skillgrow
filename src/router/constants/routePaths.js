@@ -4,6 +4,7 @@ export const ROUTE_PATHS = {
   ABOUT: '/about',
   CONTACT: '/contact',
   PRE_QUIZ: '/selectquiz',
+  SERVICE_LIST: '/serviceslist',
   LOGIN: '/login',
   REGISTER: '/register',
   APP: '/app',
