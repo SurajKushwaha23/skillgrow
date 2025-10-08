@@ -8,6 +8,7 @@ import Home from '../../pages/home/Home';
 import Login from '../../pages/login/Login';
 import Registration from '../../pages/registration/Registration';
 import ServiceList from '../../pages/serviceList/ServiceList';
+import OurSpecialistDoctors from '../../pages/ourSpecilistDoctors/OurSpecilistDoctors';
 
 // Map layout names to their components (add more as needed)
 export const layouts = {
@@ -35,6 +36,11 @@ export const PublicRoutes = [
   {
     path: ROUTE_PATHS.SERVICE_LIST,
     element: <ServiceList />,
+    layout: 'Root',
+  },
+  {
+    path: ROUTE_PATHS.OUR_SPECIALIST_DOCTORS,
+    element: <OurSpecialistDoctors />,
     layout: 'Root',
   },
 ];

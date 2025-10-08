@@ -5,6 +5,7 @@ export const ROUTE_PATHS = {
   CONTACT: '/contact',
   PRE_QUIZ: '/selectquiz',
   SERVICE_LIST: '/serviceslist',
+  OUR_SPECIALIST_DOCTORS: '/our-specialist-doctors',
   LOGIN: '/login',
   REGISTER: '/register',
   APP: '/app',
