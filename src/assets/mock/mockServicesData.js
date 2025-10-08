@@ -59,4 +59,64 @@ export const servicesData = [
       },
     ],
   },
+  {
+    id: 5,
+    title: 'Pediatrics',
+    path: '/services/pediatrics',
+    count: '12/8',
+    status: 'Available',
+    icon: [
+      {
+        strokeLinecap: 'round',
+        strokeLinejoin: 'round',
+        strokeWidth: 2,
+        d: 'M21 12a9 9 0 11-18 0 9 9 0 0118 0z',
+      },
+    ],
+  },
+  {
+    id: 6,
+    title: 'Radiology',
+    path: '/services/radiology',
+    count: '10/5',
+    status: 'Available',
+    icon: [
+      {
+        strokeLinecap: 'round',
+        strokeLinejoin: 'round',
+        strokeWidth: 2,
+        d: 'M21 12a9 9 0 11-18 0 9 9 0 0118 0z',
+      },
+    ],
+  },
+  {
+    id: 7,
+    title: 'Oncology',
+    path: '/services/oncology',
+    count: '8/4',
+    status: 'Available',
+    icon: [
+      {
+        strokeLinecap: 'round',
+        strokeLinejoin: 'round',
+        strokeWidth: 2,
+        d: 'M21 12a9 9 0 11-18 0 9 9 0 0118 0z',
+      },
+    ],
+  },
+  {
+    id: 8,
+    title: 'Dermatology',
+    path: '/services/dermatology',
+    count: '10/6',
+    status: 'Available',
+    icon: [
+      {
+        strokeLinecap: 'round',
+        strokeLinejoin: 'round',
+        strokeWidth: 2,
+        d: 'M21 12a9 9 0 11-18 0 9 9 0 0118 0z',
+      },
+    ],
+  },
 ];
