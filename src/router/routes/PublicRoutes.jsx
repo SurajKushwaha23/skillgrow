@@ -2,45 +2,51 @@
 import React, { lazy } from 'react';
 
 import { ROUTE_PATHS } from '../constants/routePaths';
-import RootLayout from '../../layouts/RootLayout';
-import AuthLayout from '../../layouts/AuthLayout';
 import Home from '../../pages/home/Home';
 import Login from '../../pages/login/Login';
 import Registration from '../../pages/registration/Registration';
 import ServiceList from '../../pages/serviceList/ServiceList';
 import OurSpecialistDoctors from '../../pages/ourSpecilistDoctors/OurSpecilistDoctors';
-
-// Map layout names to their components (add more as needed)
-export const layouts = {
-  Root: RootLayout,
-  Auth: AuthLayout,
-};
+import About from '../../pages/about/About';
+import RootLayout from '../../layouts/RootLayout';
+import AuthLayout from '../../layouts/AuthLayout';
 
 export const PublicRoutes = [
   {
     path: ROUTE_PATHS.HOME,
-    Index: true,
-    element: <Home />,
-    layout: 'Root',
+    element: <RootLayout />,
+    children: [
+      {
+        path: ROUTE_PATHS.HOME,
+        index: true,
+        element: <Home />,
+      },
+      {
+        path: ROUTE_PATHS.ABOUT,
+        element: <About />,
+      },
+      {
+        path: ROUTE_PATHS.SERVICE_LIST,
+        element: <ServiceList />,
+      },
+      {
+        path: ROUTE_PATHS.OUR_SPECIALIST_DOCTORS,
+        element: <OurSpecialistDoctors />,
+      },
+    ],
   },
   {
-    path: ROUTE_PATHS.LOGIN,
-    element: <Login />,
-    layout: 'Auth',
-  },
-  {
-    path: ROUTE_PATHS.REGISTER,
-    element: <Registration />,
-    layout: 'Auth',
-  },
-  {
-    path: ROUTE_PATHS.SERVICE_LIST,
-    element: <ServiceList />,
-    layout: 'Root',
-  },
-  {
-    path: ROUTE_PATHS.OUR_SPECIALIST_DOCTORS,
-    element: <OurSpecialistDoctors />,
-    layout: 'Root',
+    path: '',
+    element: <AuthLayout />,
+    children: [
+      {
+        path: ROUTE_PATHS.LOGIN,
+        element: <Login />,
+      },
+      {
+        path: ROUTE_PATHS.REGISTER,
+        element: <Registration />,
+      },
+    ],
   },
 ];

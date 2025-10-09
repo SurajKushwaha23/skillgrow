@@ -81,8 +81,6 @@ function Header() {
             {/* Desktop Navigation */}
             <nav className='hidden lg:flex items-center space-x-1'>
               {menuItems.map(item => {
-                const isActive = location.pathname === item.href;
-
                 return (
                   <NavLink
                     key={item.name}
