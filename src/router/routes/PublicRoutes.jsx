@@ -10,6 +10,7 @@ import OurSpecialistDoctors from '../../pages/ourSpecilistDoctors/OurSpecilistDo
 import About from '../../pages/about/About';
 import RootLayout from '../../layouts/RootLayout';
 import AuthLayout from '../../layouts/AuthLayout';
+import PageNotFound from '../../components/shared/PageNotFound';
 
 export const PublicRoutes = [
   {
@@ -48,5 +49,9 @@ export const PublicRoutes = [
         element: <Registration />,
       },
     ],
+  },
+  {
+    path: '*',
+    element: <PageNotFound />,
   },
 ];
