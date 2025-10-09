@@ -11,6 +11,7 @@ import About from '../../pages/about/About';
 import RootLayout from '../../layouts/RootLayout';
 import AuthLayout from '../../layouts/AuthLayout';
 import PageNotFound from '../../components/shared/PageNotFound';
+import AppointmentForm from '../../pages/appointmentForm/AppointmentForm';
 
 export const PublicRoutes = [
   {
@@ -33,6 +34,10 @@ export const PublicRoutes = [
       {
         path: ROUTE_PATHS.OUR_SPECIALIST_DOCTORS,
         element: <OurSpecialistDoctors />,
+      },
+      {
+        path: ROUTE_PATHS.APPOINTMENT,
+        element: <AppointmentForm />,
       },
     ],
   },

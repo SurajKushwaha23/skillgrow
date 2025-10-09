@@ -9,6 +9,7 @@ export const ROUTE_PATHS = {
   LOGIN: 'login',
   REGISTER: 'register',
   APP: '/app',
+  APPOINTMENT: '/appointment',
   PAGE_NOT_FOUND: '*',
 
   // Dynamic routes
