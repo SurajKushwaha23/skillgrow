@@ -1,7 +1,10 @@
-import CustomInputBox from '../../components/ui/fields/CustomInputBox';
-import { APPOINTMENT_FORM_FIELDS } from '../../constant/formFields';
-import { MEDICAL_DEPARTMENTS } from '../../assets/mock/mockDepartment';
 import { useState } from 'react';
+
+import { APPOINTMENT_FORM_FIELDS } from '../../constant/formFields';
+import { MEDICAL_DEPARTMENTS, GENDERS } from '../../assets/mock/mockDepartment';
+
+import CustomInputBox from '../../components/ui/fields/CustomInputBox';
+import SelectBox from '../../components/ui/fields/SelectBox';
 
 const AppointmentForm = () => {
   const { FIRST_NAME, LAST_NAME, EMAIL, PHONE } = APPOINTMENT_FORM_FIELDS;
@@ -121,23 +124,13 @@ const AppointmentForm = () => {
                       validationObject={LAST_NAME.validation}
                     />
 
-                    <div className='space-y-0'>
-                      <label htmlFor='gender' className='block text-sm font-medium text-gray-700'>
-                        Gender <span className='text-red-500'>*</span>
-                      </label>
-                      <select
-                        id='gender'
-                        className='w-full h-12 px-4 rounded-lg border border-gray-300 bg-white text-gray-900 focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-200'
-                        required
-                      >
-                        <option value='' disabled selected>
-                          Select Gender
-                        </option>
-                        <option value='male'>Male</option>
-                        <option value='female'>Female</option>
-                        <option value='other'>Other</option>
-                      </select>
-                    </div>
+                    <SelectBox
+                      id='gender'
+                      label='Select Gender'
+                      options={GENDERS}
+                      required={true}
+                      validationObject={{ required: 'Please select a gender' }}
+                    />
                   </div>
                 </div>
 
@@ -173,28 +166,13 @@ const AppointmentForm = () => {
                   </h3>
 
                   <div className='grid grid-cols-1 md:grid-cols-2 gap-6'>
-                    <div className='space-y-2'>
-                      <label
-                        htmlFor='department'
-                        className='block text-sm font-medium text-gray-700'
-                      >
-                        Department / Specialty <span className='text-red-500'>*</span>
-                      </label>
-                      <select
-                        id='department'
-                        className='w-full h-12 px-4 rounded-lg border border-gray-300 bg-white text-gray-900 focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-200'
-                        required
-                      >
-                        <option value='' disabled selected>
-                          Select a department
-                        </option>
-                        {MEDICAL_DEPARTMENTS.map(dept => (
-                          <option key={dept.value} value={dept.value}>
-                            {dept.label}
-                          </option>
-                        ))}
-                      </select>
-                    </div>
+                    <SelectBox
+                      id='department'
+                      label='Select Department'
+                      options={MEDICAL_DEPARTMENTS}
+                      required={true}
+                      validationObject={{ required: 'Please select a department' }}
+                    />
 
                     <div className='space-y-2'>
                       <label
