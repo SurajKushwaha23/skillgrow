@@ -32,7 +32,7 @@ const SelectBox = ({ id, label, options, required = false, validationObject = {}
         </option>
         {options.map(option => (
           <option key={option.value} value={option.value}>
-            {option.label}
+            {option.label || option.name}
           </option>
         ))}
       </select>

@@ -3,6 +3,7 @@ import { useForm } from 'react-hook-form';
 
 import { APPOINTMENT_FORM_FIELDS } from '../../constant/formFields';
 import { MEDICAL_DEPARTMENTS, GENDERS } from '../../assets/mock/mockDepartment';
+import { STATES } from '../../assets/mock/mockState';
 
 import CustomInputBox from '../../components/ui/fields/CustomInputBox';
 import SelectBox from '../../components/ui/fields/SelectBox';
@@ -197,6 +198,59 @@ const AppointmentForm = () => {
                       register={register}
                       errors={errors}
                       mandatory={true}
+                    />
+                  </div>
+                  <div className='grid grid-cols-1 md:grid-cols-3 gap-6'>
+                    <CustomInputBox
+                      id='street'
+                      fieldLabel='Street'
+                      type='text'
+                      validationObject={{ required: 'Street is required' }}
+                      register={register}
+                      errors={errors}
+                      mandatory={true}
+                    />
+                    <CustomInputBox
+                      id='city'
+                      fieldLabel='City'
+                      type='text'
+                      validationObject={{ required: 'City is required' }}
+                      register={register}
+                      errors={errors}
+                      mandatory={true}
+                    />
+                    <SelectBox
+                      id='state'
+                      label='Select State'
+                      options={STATES}
+                      mandatory={true}
+                      validationObject={{ required: 'Please select a state' }}
+                      register={register}
+                      errors={errors}
+                    />
+                  </div>
+
+                  <div className='grid grid-cols-1 md:grid-cols-2 gap-4'>
+                    <CustomInputBox
+                      id='zip'
+                      fieldLabel='Zip Code'
+                      type='text'
+                      validationObject={{ required: 'Zip Code is required' }}
+                      register={register}
+                      errors={errors}
+                      mandatory={true}
+                    />
+                    <SelectBox
+                      id='country'
+                      label='Select Country'
+                      options={[
+                        { label: 'India', value: 'IN' },
+                        { label: 'United States', value: 'US' },
+                      ]}
+                      required={true}
+                      validationObject={{ required: 'Please select a country' }}
+                      register={register}
+                      errors={errors}
                     />
                   </div>
                 </div>
