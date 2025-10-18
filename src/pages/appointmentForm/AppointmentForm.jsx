@@ -163,7 +163,7 @@ const AppointmentForm = () => {
 
                     <SelectBox
                       id='gender'
-                      label='Select Gender'
+                      label='Gender'
                       options={GENDERS}
                       mandatory={true}
                       validationObject={{ required: 'Please select a gender' }}
@@ -221,7 +221,7 @@ const AppointmentForm = () => {
                     />
                     <SelectBox
                       id='state'
-                      label='Select State'
+                      label='State'
                       options={STATES}
                       mandatory={true}
                       validationObject={{ required: 'Please select a state' }}
@@ -242,7 +242,7 @@ const AppointmentForm = () => {
                     />
                     <SelectBox
                       id='country'
-                      label='Select Country'
+                      label='Country'
                       options={[
                         { label: 'India', value: 'IN' },
                         { label: 'United States', value: 'US' },
@@ -264,7 +264,7 @@ const AppointmentForm = () => {
                   <div className='grid grid-cols-1 md:grid-cols-2 gap-6'>
                     <SelectBox
                       id='department'
-                      label='Select Department'
+                      label='Department'
                       options={MEDICAL_DEPARTMENTS}
                       required={true}
                       validationObject={{ required: 'Please select a department' }}

@@ -26,10 +26,8 @@ const SelectBox = ({ id, label, options, required = false, validationObject = {}
         {...register(id, validationObject)}
         className='w-full h-12 px-4 rounded-lg border border-gray-300 bg-white text-gray-900 focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-200'
         onChange={() => handleClearErrors(id)}
+        placeholder='Select an option'
       >
-        <option value='' disabled selected>
-          {label.toLowerCase()}
-        </option>
         {options.map(option => (
           <option key={option.value} value={option.value}>
             {option.label || option.name}
