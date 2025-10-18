@@ -69,7 +69,7 @@ function Header() {
                 </div>
                 <div className='flex flex-col'>
                   <span className='font-bold text-2xl bg-gradient-to-r from-blue-900 to-blue-800 bg-clip-text text-transparent'>
-                    MEDICAL
+                    Suraj
                   </span>
                   <span className='text-xs text-blue-600 font-medium tracking-wide'>
                     HEALTHCARE EXCELLENCE
