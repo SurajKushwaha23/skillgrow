@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { useForm } from 'react-hook-form';
 
 import { APPOINTMENT_FORM_FIELDS } from '../../constant/formFields';
 import { MEDICAL_DEPARTMENTS, GENDERS } from '../../assets/mock/mockDepartment';
@@ -10,9 +11,38 @@ const AppointmentForm = () => {
   const { FIRST_NAME, LAST_NAME, EMAIL, PHONE } = APPOINTMENT_FORM_FIELDS;
   const [formSubmitted, setFormSubmitted] = useState(false);
 
-  const handleSubmitClick = e => {
-    e.preventDefault();
+  // Properly initialize useForm
+  const {
+    register,
+    handleSubmit,
+    trigger,
+    formState: { errors },
+  } = useForm({
+    mode: 'onBlur',
+    reValidateMode: 'onBlur',
+  });
+
+  // This should be the form submission handler
+  const onSubmit = async data => {
+    console.log('Form data:', data);
+    // Here you would typically send data to your API
     setFormSubmitted(true);
+  };
+
+  // If you want to keep the manual validation trigger approach
+  const handleSubmitClick = async e => {
+    e.preventDefault();
+
+    // Trigger validation for all fields
+    const isValid = await trigger();
+    if (!isValid) {
+      console.log('Form has validation errors');
+      return;
+    }
+
+    // If valid, you can handle form submission here
+    // Or better, use the handleSubmit approach above
+    handleSubmit(onSubmit)();
   };
 
   return (
@@ -101,7 +131,8 @@ const AppointmentForm = () => {
           <div className='max-w-9xl mx-auto px-4 sm:px-6 lg:px-8 py-12'>
             {/* Form Section */}
             <div className='bg-white rounded-2xl  border border-gray-100 p-8'>
-              <form className='space-y-8'>
+              {/* Use handleSubmit from react-hook-form */}
+              <form onSubmit={handleSubmit(onSubmit)} className='space-y-8'>
                 {/* Personal Information Section */}
                 <div className='space-y-6'>
                   <h3 className='text-xl font-semibold text-gray-900 border-b border-gray-200 pb-3'>
@@ -114,7 +145,9 @@ const AppointmentForm = () => {
                       fieldLabel={FIRST_NAME.label}
                       type={FIRST_NAME.type}
                       validationObject={FIRST_NAME.validation}
-                      required
+                      register={register}
+                      errors={errors}
+                      mandatory={true}
                     />
 
                     <CustomInputBox
@@ -122,14 +155,19 @@ const AppointmentForm = () => {
                       fieldLabel={LAST_NAME.label}
                       type={LAST_NAME.type}
                       validationObject={LAST_NAME.validation}
+                      register={register}
+                      errors={errors}
+                      mandatory={true}
                     />
 
                     <SelectBox
                       id='gender'
                       label='Select Gender'
                       options={GENDERS}
-                      required={true}
+                      mandatory={true}
                       validationObject={{ required: 'Please select a gender' }}
+                      register={register}
+                      errors={errors}
                     />
                   </div>
                 </div>
@@ -146,7 +184,9 @@ const AppointmentForm = () => {
                       fieldLabel={EMAIL.label}
                       type={EMAIL.type}
                       validationObject={EMAIL.validation}
-                      required
+                      register={register}
+                      errors={errors}
+                      mandatory={true}
                     />
 
                     <CustomInputBox
@@ -154,7 +194,9 @@ const AppointmentForm = () => {
                       fieldLabel={PHONE.label}
                       type={PHONE.type}
                       validationObject={PHONE.validation}
-                      required
+                      register={register}
+                      errors={errors}
+                      mandatory={true}
                     />
                   </div>
                 </div>
@@ -172,6 +214,8 @@ const AppointmentForm = () => {
                       options={MEDICAL_DEPARTMENTS}
                       required={true}
                       validationObject={{ required: 'Please select a department' }}
+                      register={register}
+                      errors={errors}
                     />
 
                     <div className='space-y-2'>
@@ -184,9 +228,16 @@ const AppointmentForm = () => {
                       <input
                         type='date'
                         id='appointment-date'
+                        {...register('appointment-date', {
+                          required: 'Appointment date is required',
+                        })}
                         className='w-full h-12 px-4 rounded-lg border border-gray-300 bg-white text-gray-900 focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-200'
-                        required
                       />
+                      {errors['appointment-date'] && (
+                        <p className='text-red-500 text-sm mt-1'>
+                          {errors['appointment-date'].message}
+                        </p>
+                      )}
                     </div>
                   </div>
 
@@ -197,6 +248,7 @@ const AppointmentForm = () => {
                     <textarea
                       id='message'
                       rows='4'
+                      {...register('message')}
                       className='w-full px-4 py-3 rounded-lg border border-gray-300 bg-white text-gray-900 focus:ring-2 focus:ring-blue-500 focus:border-transparent resize-none transition-all duration-200'
                       placeholder='Please describe any specific concerns, symptoms, or special requests for your appointment...'
                     ></textarea>
@@ -209,6 +261,7 @@ const AppointmentForm = () => {
                     <input
                       type='checkbox'
                       id='MarketingAccept'
+                      {...register('marketingAccept')}
                       className='mt-1 size-5 rounded border-gray-300 text-blue-600 focus:ring-blue-500'
                     />
                     <label htmlFor='MarketingAccept' className='text-sm text-gray-700'>
@@ -242,8 +295,7 @@ const AppointmentForm = () => {
                 {/* Submit Button */}
                 <div className='flex justify-center pt-4'>
                   <button
-                    type='button'
-                    onClick={handleSubmitClick}
+                    type='submit'
                     className='w-full md:w-auto px-12 py-4 bg-gradient-to-r from-blue-600 to-violet-600 text-white font-semibold rounded-xl shadow-lg hover:shadow-xl transform hover:-translate-y-0.5 transition-all duration-200 focus:outline-none focus:ring-4 focus:ring-blue-500 focus:ring-opacity-50'
                   >
                     <span className='flex items-center justify-center space-x-2'>

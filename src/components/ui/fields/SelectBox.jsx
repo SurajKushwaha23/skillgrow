@@ -9,6 +9,7 @@ const SelectBox = ({ id, label, options, required = false, validationObject = {}
     clearErrors,
   } = useForm({
     mode: 'onBlur',
+    reValidateMode: 'onBlur',
   });
 
   const handleClearErrors = fieldName => {

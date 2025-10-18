@@ -7,7 +7,7 @@ const CustomInputBox = props => {
     id,
     fieldLabel,
     validationObject = {}, // Default to empty object for no validation
-    required = false,
+    mandatory = false,
     helpText,
   } = props;
 
@@ -17,6 +17,7 @@ const CustomInputBox = props => {
     clearErrors,
   } = useForm({
     mode: 'onBlur',
+    reValidateMode: 'onBlur',
   });
 
   const [hasTyped, setHasTyped] = useState(false);
@@ -39,7 +40,7 @@ const CustomInputBox = props => {
       {fieldLabel && (
         <label htmlFor={id} className={`block text-sm font-medium text-gray-700 mb-1`}>
           {fieldLabel}
-          {required && <span className='text-red-500 ml-1'>*</span>}
+          {mandatory && <span className='text-red-500 ml-1'>*</span>}
         </label>
       )}
       <div className='mt-1 relative rounded-md shadow-sm'>
