@@ -5,6 +5,7 @@ import { APPOINTMENT_FORM_FIELDS } from '../../constant/formFields';
 import { MEDICAL_DEPARTMENTS, GENDERS } from '../../assets/mock/mockDepartment';
 import { STATES } from '../../assets/mock/mockState';
 
+import TextBanner from '../../components/ui/text-banner/TextBanner';
 import CustomInputBox from '../../components/ui/fields/CustomInputBox';
 import SelectBox from '../../components/ui/fields/SelectBox';
 
@@ -48,22 +49,11 @@ const AppointmentForm = () => {
 
   return (
     <>
-      <div className='bg-gradient-to-br from-blue-50 to-indigo-50 py-8'>
-        <div className='max-w-7xl mx-auto px-4 sm:px-6 lg:px-8'>
-          {/* Header Section */}
-          <div className='mb-12 text-center py-8'>
-            <h1 className='text-4xl font-bold text-gray-900 mb-4 bg-gradient-to-r from-gray-900 to-blue-900 bg-clip-text '>
-              Book Your Appointment
-            </h1>
-            <p className='text-xl text-gray-600 max-w-2xl mx-auto leading-relaxed'>
-              Schedule your visit with our expert doctors and experience personalized healthcare.
-              Fill out the form below and we will get back to you shortly to confirm your
-              appointment.
-            </p>
-          </div>
-        </div>
-      </div>
-
+      {/* Text Banner Section */}
+      <TextBanner
+        title='Book Your Appointment'
+        subtitle='Schedule your visit with our expert doctors and experience personalized healthcare. Fill out the form below and we will get back to you shortly to confirm your appointment.'
+      />
       {/* success message when form is submitted and generate a confirmation number */}
       {formSubmitted && (
         <div className='max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 my-8'>
