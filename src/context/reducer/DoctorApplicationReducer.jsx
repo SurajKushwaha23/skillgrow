@@ -1,32 +1,36 @@
-import { ActionTypes } from '../ActionType.js';
+import { APPLICATION_ACTIONS_TYPES } from '../ActionType.js';
 
 // define the initial state and reducer for managing doctor application booking form data
 export const initialState = {
   bookingForm: {
     firstName: '',
     lastName: '',
+    gender: '',
+    dateOfBirth: '',
     email: '',
     phone: '',
-    address: {
-      street: '',
-      city: '',
-      state: '',
-      zip: '',
-    },
+    street: '',
+    city: '',
+    state: '',
+    zip: '',
+    country: '',
+    department: '',
+    appoinmentDate: '',
+    message: '',
+    upcomingEventInfo: false,
   },
 };
 
-export const doctorApplicationReducer = (state, action) => {
+const { SAVE_APPOINTMENT_FORM } = APPLICATION_ACTIONS_TYPES;
+
+export const doctorApplicationReducer = (currentState = initialState, action) => {
   switch (action.type) {
-    case ActionTypes.UPDATE_BOOKING_FORM:
+    case SAVE_APPOINTMENT_FORM:
       return {
-        ...state,
-        bookingForm: {
-          ...state.bookingForm,
-          [action.payload.field]: action.payload.value,
-        },
+        ...initialState,
+        bookingForm: action.payload,
       };
     default:
-      return state;
+      return currentState;
   }
 };

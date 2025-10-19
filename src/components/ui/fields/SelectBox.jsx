@@ -24,10 +24,11 @@ const SelectBox = ({ id, label, options, required = false, validationObject = {}
       <select
         id={id}
         {...register(id, validationObject)}
-        className='w-full h-12 px-4 rounded-lg border border-gray-300 bg-white text-gray-900 focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-200'
+        className='w-full h-12 px-4 rounded-lg border border-gray-300 text-gray-700 focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-200'
         onChange={() => handleClearErrors(id)}
         placeholder='Select an option'
       >
+        <option selected>Select an option</option>
         {options.map(option => (
           <option key={option.value} value={option.value}>
             {option.label || option.name}
