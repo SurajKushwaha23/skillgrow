@@ -9,7 +9,6 @@ const About = () => {
       position: 'Chief Medical Director',
       specialization: 'Cardiology',
       experience: '15+ years',
-      image: '/images/doctor1.jpg',
     },
     {
       id: 2,
@@ -17,7 +16,6 @@ const About = () => {
       position: 'Head of Surgery',
       specialization: 'Orthopedic Surgery',
       experience: '12+ years',
-      image: '/images/doctor2.jpg',
     },
     {
       id: 3,
@@ -25,7 +23,6 @@ const About = () => {
       position: 'Head of Pediatrics',
       specialization: 'Pediatric Care',
       experience: '10+ years',
-      image: '/images/doctor3.jpg',
     },
   ];
 
