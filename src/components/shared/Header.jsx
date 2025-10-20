@@ -10,14 +10,7 @@ const menuItems = [
 
 function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const [isScrolled, setIsScrolled] = useState(false);
   const location = useLocation();
-
-  useEffect(() => {
-    const handleScroll = () => setIsScrolled(window.scrollY > 20);
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
 
   return (
     <>
@@ -85,11 +78,11 @@ function Header() {
                   <NavLink
                     key={item.name}
                     to={item.href}
-                    className='flex items-center space-x-2 px-4 py-3 text-sm font-medium transition-all duration-300 relative group'
+                    className='flex items-center space-x-2 px-4 py-3 font-medium transition-all duration-300 relative group'
                   >
                     <span className='relative'>
                       {item.name}
-                      <span className='absolute -bottom-1 left-0 w-0 h-0.5 bg-blue-600 transition-all duration-300 group-hover:w-full'></span>
+                      <span className='absolute -bottom-1 left-0 w-0 h-0.5 text-base bg-blue-600 transition-all duration-300 group-hover:w-full'></span>
                     </span>
                   </NavLink>
                 );
