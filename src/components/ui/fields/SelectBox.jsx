@@ -1,15 +1,13 @@
 /* eslint-disable react/prop-types */
-
 import { useForm } from 'react-hook-form';
 
-const SelectBox = ({ id, label, options, required = false, validationObject = {} }) => {
+const SelectBox = ({ id, label, options, mandatory = false, validationObject = {} }) => {
   const {
     register,
     formState: { errors = {} },
     clearErrors,
   } = useForm({
     mode: 'onBlur',
-    reValidateMode: 'onBlur',
   });
 
   const handleClearErrors = fieldName => {
@@ -18,25 +16,31 @@ const SelectBox = ({ id, label, options, required = false, validationObject = {}
 
   return (
     <div className='relative'>
-      <label htmlFor={id} className='block text-sm font-medium text-gray-700'>
-        {label} {required && <span className='text-red-500'>*</span>}
+      <label htmlFor={id} className={`block text-sm font-medium text-gray-700 mb-1`}>
+        {label} {mandatory && <span className='text-red-500'>*</span>}
       </label>
-      <select
-        id={id}
-        {...register(id, validationObject)}
-        className='w-full h-12 px-4 rounded-lg border border-gray-300 text-gray-700 focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-200'
-        onChange={() => handleClearErrors(id)}
-        placeholder='Select an option'
-      >
-        <option selected>Select an option</option>
-        {options.map(option => (
-          <option key={option.value} value={option.value}>
-            {option.label || option.name}
+      <div className='relative rounded-md shadow-sm'>
+        <select
+          id={id}
+          {...register(id, validationObject)}
+          className={`flex h-10 w-full rounded-md border border-gray-300 bg-transparent px-3 py-2 text-sm placeholder:text-gray-400 focus:outline-none focus:ring-1 focus:ring-gray-400 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50 ${
+            errors[id] ? 'border-red-500' : ''
+          }  `}
+          onChange={() => handleClearErrors(id)}
+          placeholder='Select an option'
+        >
+          <option value='' disabled>
+            Select an option
           </option>
-        ))}
-      </select>
+          {options.map((option, index) => (
+            <option key={option?.value ?? option?.name ?? index} value={option.value}>
+              {option.label || option.name}
+            </option>
+          ))}
+        </select>
+      </div>
       {errors[id] && (
-        <span id={`${id}-error`} className={`text-red-500 text-xs mt-1`}>
+        <span id={`${id}-error`} className={`text-red-500 text-sm mt-1`}>
           {errors[id]?.message}
         </span>
       )}

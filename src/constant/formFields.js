@@ -89,6 +89,14 @@ export const APPOINTMENT_FORM_FIELDS = {
     id: 'lastName',
     type: 'text',
   },
+  GENDER: {
+    label: 'Gender',
+    id: 'gender',
+    mandatory: true,
+    validation: {
+      required: { value: true, message: 'Please select a gender' },
+    },
+  },
   EMAIL: {
     label: 'Email',
     id: 'email',

@@ -2,7 +2,7 @@
 import { useState } from 'react';
 import { useForm } from 'react-hook-form';
 
-const CustomInputBox = props => {
+const Date = props => {
   const {
     id,
     fieldLabel,
@@ -45,8 +45,9 @@ const CustomInputBox = props => {
       <div className='mt-1 relative rounded-md shadow-sm'>
         <input
           id={id}
+          type='date'
           {...register(id, validationObject)}
-          className={`flex h-10 w-full rounded-md border border-gray-300 bg-transparent px-3 py-2 text-sm placeholder:text-gray-400 focus:outline-none focus:ring-1 focus:ring-gray-400 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50 ${
+          className={`h-10 w-full rounded-md border border-gray-300 bg-transparent px-3 py-2 text-sm placeholder:text-gray-400 focus:outline-none focus:ring-1 focus:ring-gray-400 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50 ${
             errors[id] ? 'border-red-500' : ''
           }  `}
           aria-invalid={!!errors[id]}
@@ -71,4 +72,4 @@ const CustomInputBox = props => {
   );
 };
 
-export default CustomInputBox;
+export default Date;

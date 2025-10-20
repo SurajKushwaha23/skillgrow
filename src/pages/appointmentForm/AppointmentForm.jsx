@@ -8,15 +8,15 @@ import { STATES } from '../../assets/mock/mockState';
 import TextBanner from '../../components/ui/text-banner/TextBanner';
 import CustomInputBox from '../../components/ui/fields/CustomInputBox';
 import SelectBox from '../../components/ui/fields/SelectBox';
+import Date from '../../components/ui/fields/Date';
 
 const AppointmentForm = () => {
-  const { FIRST_NAME, LAST_NAME, EMAIL, PHONE } = APPOINTMENT_FORM_FIELDS;
+  const { FIRST_NAME, LAST_NAME, EMAIL, PHONE, GENDER } = APPOINTMENT_FORM_FIELDS;
   const [formSubmitted, setFormSubmitted] = useState(false);
 
   // Properly initialize useForm
   const {
     register,
-    handleSubmit,
     trigger,
     formState: { errors },
   } = useForm({
@@ -24,27 +24,15 @@ const AppointmentForm = () => {
     reValidateMode: 'onBlur',
   });
 
-  // This should be the form submission handler
-  const onSubmit = async data => {
-    console.log('Form data:', data);
-    // Here you would typically send data to your API
-    setFormSubmitted(true);
-  };
-
   // If you want to keep the manual validation trigger approach
-  const handleSubmitClick = async e => {
+  const handleFormSubmit = async e => {
     e.preventDefault();
 
     // Trigger validation for all fields
     const isValid = await trigger();
     if (!isValid) {
-      console.log('Form has validation errors');
       return;
     }
-
-    // If valid, you can handle form submission here
-    // Or better, use the handleSubmit approach above
-    handleSubmit(onSubmit)();
   };
 
   return (
@@ -123,7 +111,7 @@ const AppointmentForm = () => {
             {/* Form Section */}
             <div className='bg-white rounded-2xl  border border-gray-100 p-8'>
               {/* Use handleSubmit from react-hook-form */}
-              <form onSubmit={handleSubmit(onSubmit)} className='space-y-8'>
+              <form onSubmit={handleFormSubmit} className='space-y-8'>
                 {/* Personal Information Section */}
                 <div className='space-y-6'>
                   <h3 className='text-xl font-semibold text-gray-900 border-b border-gray-200 pb-3'>
@@ -148,17 +136,14 @@ const AppointmentForm = () => {
                       validationObject={LAST_NAME.validation}
                       register={register}
                       errors={errors}
-                      mandatory={true}
                     />
 
                     <SelectBox
-                      id='gender'
-                      label='Gender'
+                      id={GENDER.id}
+                      label={GENDER.label}
                       options={GENDERS}
-                      mandatory={true}
-                      validationObject={{ required: 'Please select a gender' }}
-                      register={register}
-                      errors={errors}
+                      mandatory={GENDER.mandatory}
+                      validationObject={GENDER.validation}
                     />
                   </div>
                 </div>
@@ -256,33 +241,18 @@ const AppointmentForm = () => {
                       id='department'
                       label='Department'
                       options={MEDICAL_DEPARTMENTS}
-                      required={true}
+                      mandatory={true}
                       validationObject={{ required: 'Please select a department' }}
-                      register={register}
-                      errors={errors}
                     />
 
-                    <div className='space-y-2'>
-                      <label
-                        htmlFor='appointment-date'
-                        className='block text-sm font-medium text-gray-700'
-                      >
-                        Appointment Date <span className='text-red-500'>*</span>
-                      </label>
-                      <input
-                        type='date'
-                        id='appointment-date'
-                        {...register('appointment-date', {
-                          required: 'Appointment date is required',
-                        })}
-                        className='w-full h-12 px-4 rounded-lg border border-gray-300 bg-white text-gray-900 focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-200'
-                      />
-                      {errors['appointment-date'] && (
-                        <p className='text-red-500 text-sm mt-1'>
-                          {errors['appointment-date'].message}
-                        </p>
-                      )}
-                    </div>
+                    <Date
+                      id='appointment-date'
+                      fieldLabel='Appointment Date'
+                      validationObject={{ required: 'Appointment date is required' }}
+                      register={register}
+                      errors={errors}
+                      mandatory={true}
+                    />
                   </div>
 
                   <div className='space-y-2'>
@@ -339,7 +309,8 @@ const AppointmentForm = () => {
                 {/* Submit Button */}
                 <div className='flex justify-center pt-4'>
                   <button
-                    type='submit'
+                    type='button'
+                    onClick={handleFormSubmit}
                     className='w-full md:w-auto px-12 py-4 bg-gradient-to-r from-blue-600 to-violet-600 text-white font-semibold rounded-xl shadow-lg hover:shadow-xl transform hover:-translate-y-0.5 transition-all duration-200 focus:outline-none focus:ring-4 focus:ring-blue-500 focus:ring-opacity-50'
                   >
                     <span className='flex items-center justify-center space-x-2'>
